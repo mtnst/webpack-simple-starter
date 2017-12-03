@@ -46,19 +46,11 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
-        test: /\.pug$/,
-        loader: 'pug-loader',
-        options: {
-          root: resolve('src/views'),
-          pretty: true
-        }
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[ext]')
         }
       },
       {
@@ -66,7 +58,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
     ]
@@ -75,7 +67,7 @@ module.exports = {
     ...utils.pageFile(isDev),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: utils.assetsPath('css/[name].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -84,14 +76,5 @@ module.exports = {
         safe: true
       }
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-      // In case you imported plugins individually, you must also require them here:
-      Util: "exports-loader?Util!bootstrap/js/dist/util",
-      Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
-    })
   ]
 }

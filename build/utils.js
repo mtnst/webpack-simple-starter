@@ -68,17 +68,16 @@ exports.pageFile = function (dev = true) {
   var HtmlWebpackPlugin = require('html-webpack-plugin')
   const fs = require('fs')
   const path = require('path')
-  const testFolder = path.resolve(__dirname, '../src/views/pages')
+  const testFolder = path.resolve(__dirname, '../src/views/')
   
   var list = []
   
   fs.readdirSync(testFolder).forEach(fileItem => {
     var file = path.resolve(__dirname, `${testFolder}/${fileItem}`)
-    var distfile = fileItem.replace('.pug', '.html')
 
     // https://github.com/ampedandwired/html-webpack-plugin
     var options = {
-      filename: path.resolve(__dirname, `../dist/${distfile}`),
+      filename: path.resolve(__dirname, `../dist/${fileItem}`),
       template: file,
       inject: true
     }
@@ -88,9 +87,9 @@ exports.pageFile = function (dev = true) {
       // you can customize output by editing /index.html
       // see https://github.com/ampedandwired/html-webpack-plugin
       options.minify = {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeComments: false,
+        collapseWhitespace: false,
+        removeAttributeQuotes: false
       }
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       options.chunksSortMode = 'dependency'
