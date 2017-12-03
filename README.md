@@ -1,3 +1,10 @@
+# Updated for React from original repo
+Deleted Pug,
+Html's pages no more minify,
+There is not hash all dist files.
+Removed Jquery-Bootstrap etc...
+
+
 # Webpack Simple Starter
 A simple webpack starter without framework (Like Vue, React, Angular, etc.). This project is inspired from [**vue-cli webpack project**](https://github.com/vuejs/vue-cli#vue-build)
 
@@ -29,15 +36,10 @@ config/		# Dev and prod configurations
 src/ 		# Project development files
 |_ scripts/	# Javascript files
 |_ styles/	# Style files (scss)
-|_ views/	# HTML templates (pug)
+|_ views/	# HTML templates 
 static/		# Static files (Like fonts, images)
 ```
 
-### Used Frameworks
-- Bootstrap and depended javascript frameworks like jquery. (Client)
-- Babel.js for ES6 compile
-- Sass for CSS
-- Pug for HTML template
 
 Also, this project is supporting hot reload and include **eslint**
 
